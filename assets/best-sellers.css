@@ -1,3 +1,9 @@
+:root {
+    --text-primary: #000000;
+    --text-secondary: #000000;
+
+}
+
 .best-sellers {
     position: relative;
     padding: 48px 0;
@@ -15,6 +21,7 @@
     line-height: 24px;
     letter-spacing: 0;
     color: #535353;
+    margin-top: 0;
 }
 
 .best-sellers__title {
