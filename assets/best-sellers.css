@@ -1,7 +1,7 @@
 :root {
     --text-primary: #000000;
     --text-secondary: #535353;
-    --border-color: #
+    --border-color: #DCDCDC;
 }
 
 .best-sellers {
@@ -56,11 +56,11 @@
     font-size: 22px;
     line-height: 28px;
     align-items: center;
-    border-bottom: 1px solid ;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .best-sellers__collections-button.is-active {
-
+    
 }
 
 .best-sellers__product-card {
