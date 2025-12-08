@@ -102,6 +102,8 @@
     display: block;
     width: 100%;
     height: auto;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
 }
 
 .best-sellers__tags {
