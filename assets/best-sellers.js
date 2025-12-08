@@ -115,9 +115,8 @@ const initBestSellersSection = (section) => {
                     if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
                         cartDrawer.renderContents(parsedState);
 
-                        const drawerInner = cartDrawer.querySelector('.drawer__inner');
-                        if (drawerInner && drawerInner.classList.contains('is-empty')) {
-                            drawerInner.classList.remove('is-empty');
+                        if (cartDrawer && cartDrawer.classList.contains('is-empty')) {
+                            cartDrawer.classList.remove('is-empty');
                         }
                     }
                 })
