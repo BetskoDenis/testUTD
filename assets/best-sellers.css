@@ -266,6 +266,10 @@
     height: 14px;
 }
 
+.best-sellers__modal-content {
+    text-align: center;
+}
+
 .no-scroll {
     overflow: hidden;
 }
