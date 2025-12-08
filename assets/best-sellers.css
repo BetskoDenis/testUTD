@@ -258,8 +258,12 @@
     right: 16px;
     border: none;
     background: transparent;
-    font-size: 20px;
     cursor: pointer;
+}
+
+.best-sellers__modal-close svg {
+    width: 12px;
+    height: 12px;
 }
 
 .no-scroll {
