@@ -88,13 +88,20 @@ const initBestSellersSection = (section) => {
             const variantId = quickAddButton.getAttribute('data-variant-id');
             if (!variantId) return;
 
+            const sectionsToRender = ['cart-drawer', 'cart-icon-bubble'];
+
             fetch('/cart/add.js', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
                 },
-                body: JSON.stringify({ id: Number(variantId), quantity: 1 }),
+                body: JSON.stringify({
+                    id: Number(variantId),
+                    quantity: 1,
+                    sections: sectionsToRender,
+                    sections_url: window.location.pathname,
+                }),
             })
                 .then((response) => {
                     if (!response.ok) {
@@ -102,66 +109,14 @@ const initBestSellersSection = (section) => {
                     }
                     return response.json();
                 })
-                .then(() => fetch('/cart.js'))
-                .then((response) => response.json())
-                .then((cart) => {
-                    // 1. Пытаемся найти уже существующий счётчик
-                    const countBubble = document.querySelector(
-                        '.cart-count-bubble span[aria-hidden="true"], [data-cart-count]'
-                    );
+                .then((parsedState) => {
+                    const cartDrawer = document.querySelector('cart-drawer');
 
-                    if (countBubble && typeof cart.item_count === 'number') {
-                        // Если элемент есть — просто обновляем текст
-                        countBubble.textContent = cart.item_count;
-                        return;
-                    }
-
-                    // 2. Если счётчика нет, но товары в корзине появились — создаём бейдж
-                    if (!countBubble && cart.item_count > 0) {
-                        const cartIconWrapper = document.querySelector(
-                            '#cart-icon-bubble .icon-wrapper, #cart-icon-bubble'
-                        );
-
-                        if (!cartIconWrapper) {
-                            return;
-                        }
-
-                        const bubble = document.createElement('span');
-                        bubble.className = 'cart-count-bubble';
-
-                        const bubbleCount = document.createElement('span');
-                        bubbleCount.setAttribute('aria-hidden', 'true');
-                        bubbleCount.textContent = cart.item_count;
-                        bubble.appendChild(bubbleCount);
-
-                        // (опционально) скрытый текст для a11y можно не делать для тестового задания
-                        // const hidden = document.createElement('span');
-                        // hidden.className = 'visually-hidden';
-                        // hidden.textContent = `Items in cart: ${cart.item_count}`;
-                        // bubble.appendChild(hidden);
-
-                        cartIconWrapper.appendChild(bubble);
-                    }
-
-                    const cartUpdatedEvent = new CustomEvent('best-sellers:cart-updated', {
-                        detail: { cart },
-                    });
-                    document.dispatchEvent(cartUpdatedEvent);
-
-                    // Открываем стандартный cart drawer через клик по иконке корзины,
-                    // чтобы сработала вся родная логика темы (рендер, анимации и т.д.)
-                    const cartToggleButton = document.querySelector(
-                        'button[aria-controls="CartDrawer"], #cart-icon-bubble'
-                    );
-
-                    if (cartToggleButton) {
-                        cartToggleButton.dispatchEvent(
-                            new MouseEvent('click', { bubbles: true })
-                        );
+                    if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
+                        cartDrawer.renderContents(parsedState);
                     }
                 })
                 .catch((error) => {
-
                     console.error('Best sellers quick add error', error);
                 });
         }
