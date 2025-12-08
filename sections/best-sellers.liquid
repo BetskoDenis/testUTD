@@ -2,18 +2,19 @@
 
 <section id="best-sellers-{{ section.id }}" class="best-sellers" data-section-id="{{ section.id }}" data-section-type="best-sellers">
   <div class="best-sellers__container">
-    {% if section.settings.section_label != blank %}
-      <p class="best-sellers__section-label">{{ section.settings.section_label }}</p>
-    {% endif %}
-
-    {% if section.settings.title != blank %}
-      <h2 class="best-sellers__title">{{ section.settings.title }}</h2>
-    {% endif %}
 
     {% if section.blocks.size > 0 %}
       <div class="best-sellers__grid">
         <div class="best-sellers__collections" role="tablist" aria-orientation="vertical">
-          <ul class="best-sellers__collections-list">
+            {% if section.settings.section_label != blank %}
+                <p class="best-sellers__section-label">{{ section.settings.section_label }}</p>
+            {% endif %}
+
+            {% if section.settings.title != blank %}
+                <h2 class="best-sellers__title">{{ section.settings.title }}</h2>
+            {% endif %}
+
+            <ul class="best-sellers__collections-list">
             {% for block in section.blocks %}
               {% assign collection = block.settings.collection %}
               {% if collection %}
