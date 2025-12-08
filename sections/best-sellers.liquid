@@ -41,7 +41,6 @@
             {% if collection %}
               {% assign override_product = all_products[block.settings.product] %}
               {% if override_product %}
-                  {{ all_products[block.settings.product] }}
                 {% assign product = override_product %}
               {% else %}
                 {% assign product = collection.products | first %}
