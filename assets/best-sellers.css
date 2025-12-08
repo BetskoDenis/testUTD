@@ -58,7 +58,7 @@
     font-size: 22px;
     line-height: 28px;
     align-items: center;
-    border-bottom: 1px solid var(--border-color);
+    border: none none 1px solid var(--border-color) none;
     color: var(--text-third);
 }
 
