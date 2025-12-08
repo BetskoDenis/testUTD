@@ -177,6 +177,10 @@ best-sellers__product-title-link {
 
 .best-sellers__product-title {
     margin: 0 0 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
 }
 
 .best-sellers__price {
