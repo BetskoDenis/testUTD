@@ -82,10 +82,13 @@
 
 .best-sellers__media {
     position: relative;
+    border-radius: ;
 }
 
 .best-sellers__content {
     position: absolute;
+    bottom: 0;
+
 
 }
 
