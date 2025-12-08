@@ -92,6 +92,8 @@
     left: 8px;
     right: 8px;
     background-color: #fff;
+    padding: 12px 16px;
+    border-radius: 16px;
 }
 
 .best-sellers__image-link {
