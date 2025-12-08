@@ -38,9 +38,14 @@
 
 .best-sellers__grid {
     display: grid;
-    /*grid-template-columns: minmax(0, 260px) minmax(0, 1fr);*/
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
 }
+
+
+/*.best-sellers__product-card.is-active {*/
+/*    grid-template-columns: minmax(0, 1fr);*/
+/*}*/
 
 .best-sellers__collections-list {
     list-style: none;
@@ -225,11 +230,5 @@
 }
 
 @media (max-width: 767px) {
-    .best-sellers__grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
 
-    .best-sellers__product-card.is-active {
-        grid-template-columns: minmax(0, 1fr);
-    }
 }
