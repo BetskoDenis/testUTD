@@ -65,7 +65,7 @@
                         {% assign best_sellers_mobile_2x = featured_image | image_url: width: 720 %}
                         {% assign best_sellers_desktop_1x = featured_image | image_url: width: 520 %}
                         {% assign best_sellers_desktop_2x = featured_image | image_url: width: 1040 %}
-                          {{ collection | json }}
+                          {{ collection.products | json }}
                         <picture>
                           <source
                             media="(max-width: 749px)"
