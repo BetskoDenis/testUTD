@@ -77,10 +77,50 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "best_sellers_f6zNNB": {
+      "type": "best-sellers",
+      "blocks": {
+        "collection_RAmGta": {
+          "type": "collection",
+          "settings": {
+            "collection": "mantra-rings",
+            "collection_title": "",
+            "product": ""
+          }
+        },
+        "collection_YQbNLf": {
+          "type": "collection",
+          "settings": {
+            "collection": "charitybands",
+            "collection_title": "",
+            "product": ""
+          }
+        },
+        "collection_znAjDQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "statement-collection",
+            "collection_title": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_RAmGta",
+        "collection_YQbNLf",
+        "collection_znAjDQ"
+      ],
+      "name": "Best sellers",
+      "settings": {
+        "section_label": "Best sellers",
+        "title": "Trending Products"
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "best_sellers_f6zNNB"
   ]
 }
