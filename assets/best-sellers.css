@@ -26,7 +26,10 @@
 }
 
 .best-sellers__title {
-    
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0;
 }
 
 .best-sellers__grid {
