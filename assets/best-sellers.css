@@ -194,7 +194,8 @@
 }
 
 .best-sellers__price-compare {
-    
+    color: var(--text-third);
+    text-decoration: line-through;
 }
 
 .best-sellers__overlay {
