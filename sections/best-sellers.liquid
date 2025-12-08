@@ -107,6 +107,26 @@
                         {% endfor %}
                       </ul>
                     {% endif %}
+                      <div class="best-sellers__actions">
+                          <button
+                                  type="button"
+                                  class="best-sellers__icon-button best-sellers__icon-button--wishlist"
+                                  aria-label="Add to wishlist"
+                          >
+                              <span aria-hidden="true">❤</span>
+                          </button>
+
+                          {% assign first_variant = product.selected_or_first_available_variant %}
+                          <button
+                                  type="button"
+                                  class="best-sellers__icon-button best-sellers__icon-button--quick-add"
+                                  data-variant-id="{{ first_variant.id }}"
+                                  {% unless product.available %}disabled aria-disabled="true"{% endunless %}
+                                  aria-label="Quick add to cart"
+                          >
+                              <span aria-hidden="true">👁</span>
+                          </button>
+                      </div>
                   </div>
 
                   <div class="best-sellers__content">
@@ -125,26 +145,6 @@
                       </div>
                     {% endif %}
 
-                    <div class="best-sellers__actions">
-                      <button
-                        type="button"
-                        class="best-sellers__icon-button best-sellers__icon-button--wishlist"
-                        aria-label="Add to wishlist"
-                      >
-                        <span aria-hidden="true">❤</span>
-                      </button>
-
-                      {% assign first_variant = product.selected_or_first_available_variant %}
-                      <button
-                        type="button"
-                        class="best-sellers__icon-button best-sellers__icon-button--quick-add"
-                        data-variant-id="{{ first_variant.id }}"
-                        {% unless product.available %}disabled aria-disabled="true"{% endunless %}
-                        aria-label="Quick add to cart"
-                      >
-                        <span aria-hidden="true">👁</span>
-                      </button>
-                    </div>
                   </div>
                 </div>
               {% endif %}
