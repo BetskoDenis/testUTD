@@ -120,7 +120,7 @@ const initBestSellersSection = (section) => {
                     document.dispatchEvent(cartUpdatedEvent);
                 })
                 .catch((error) => {
-                   
+
                     console.error('Best sellers quick add error', error);
                 });
         }
