@@ -38,13 +38,13 @@ const initBestSellersSection = (section) => {
     });
 
     const openModal = (productName) => {
-        if (!overlay || !modal || !modalBody) return;
+        if (!overlay || !modal || !modalContent) return;
 
-        modalBody.innerHTML = '';
+        modalContent.innerHTML = '';
 
         const text = document.createElement('p');
         text.textContent = `${productName} has been added to your wishlist.`;
-        modalBody.appendChild(text);
+        modalContent.appendChild(text);
 
         overlay.hidden = false;
         modal.hidden = false;
