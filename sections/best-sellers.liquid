@@ -28,6 +28,9 @@
                     aria-selected="{{ is_active }}"
                   >
                     {{ block.settings.collection_title | default: collection.title }}
+                      <span class="svg-wrapper">
+                        {{- 'icon-arrow.svg' | inline_asset_content -}}
+                      </span>
                   </button>
                 </li>
               {% endif %}
