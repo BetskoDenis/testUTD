@@ -150,6 +150,9 @@
 .best-sellers__actions {
     display: flex;
     gap: 8px;
+    position: absolute;
+    right: 0;
+
 }
 
 .best-sellers__icon-button {
