@@ -1,7 +1,7 @@
 :root {
     --text-primary: #000000;
     --text-secondary: #535353;
-
+    --border-color: #
 }
 
 .best-sellers {
@@ -49,7 +49,6 @@
 .best-sellers__collections-button {
     width: 100%;
     padding: 24px 0;
-    border: none;
     background: transparent;
     cursor: pointer;
     display: flex;
@@ -57,6 +56,7 @@
     font-size: 22px;
     line-height: 28px;
     align-items: center;
+    border-bottom: 1px solid ;
 }
 
 .best-sellers__collections-button.is-active {
