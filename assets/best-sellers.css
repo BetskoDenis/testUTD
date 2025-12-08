@@ -55,7 +55,9 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    font-size: ;
+    font-size: 22px;
+    line-height: 28px;
+    
 }
 
 .best-sellers__collections-button.is-active {
