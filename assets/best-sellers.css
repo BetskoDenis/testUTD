@@ -105,10 +105,10 @@
 
 .best-sellers__tags {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 8px;
+    left: 8px;
     display: flex;
-    flex-wrap: wrap;
+    
     gap: 6px;
     list-style: none;
     margin: 0;
