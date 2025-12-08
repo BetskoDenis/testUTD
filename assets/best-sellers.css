@@ -125,6 +125,7 @@
     background-color: #ffffff;
     border: 1px solid var(--border-color);
     color: var(--text-primary);
+    text-align: center;
 }
 
 .best-sellers__tag--sale {
