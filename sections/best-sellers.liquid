@@ -60,12 +60,12 @@
                   <div class="best-sellers__media">
                     <a href="{{ product.url }}" class="best-sellers__image-link">
                       {% if featured_image %}
-                          ссчр
+
                         {% assign best_sellers_mobile_1x = featured_image | image_url: width: 360 %}
                         {% assign best_sellers_mobile_2x = featured_image | image_url: width: 720 %}
                         {% assign best_sellers_desktop_1x = featured_image | image_url: width: 520 %}
                         {% assign best_sellers_desktop_2x = featured_image | image_url: width: 1040 %}
-
+{{ best_sellers_desktop_1x }}
                         <picture>
                           <source
                             media="(max-width: 749px)"
