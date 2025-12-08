@@ -215,6 +215,10 @@
     z-index: 1001;
 }
 
+.best-sellers__modal-body {
+    position: relative;
+}
+
 .best-sellers__modal[hidden],
 .best-sellers__overlay[hidden] {
     display: none !important;
