@@ -22,10 +22,11 @@
     letter-spacing: 0;
     color: var(--text-secondary);
     margin-top: 0;
+    margin-bottom: 16px;
 }
 
 .best-sellers__title {
-    margin: 0 0 24px;
+    
 }
 
 .best-sellers__grid {
