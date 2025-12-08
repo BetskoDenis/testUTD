@@ -198,7 +198,7 @@
     text-decoration: line-through;
 }
 
-.best-sellers__overlay {
+.best-sellers .best-sellers__overlay {
     display: block;
     position: fixed;
     inset: 0;
