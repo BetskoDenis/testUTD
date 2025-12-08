@@ -274,6 +274,6 @@
     overflow: hidden;
 }
 
-@media (max-width: 767px) {
+@media screen and (min-width: 990px) {
 
 }

@@ -1,4 +1,3 @@
-// assets/best-sellers.js
 
 const initBestSellersSection = (section) => {
     if (!section) return;
