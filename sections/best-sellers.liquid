@@ -164,7 +164,9 @@
   <div class="best-sellers__modal" data-best-sellers-modal hidden role="dialog" aria-modal="true">
 
     <div class="best-sellers__modal-body">
-        <button type="button" class="best-sellers__modal-close" aria-label="Close">×</button>
+        <button type="button" class="best-sellers__modal-close" aria-label="Close">
+            {{- 'icon-close.svg' | inline_asset_content -}}
+        </button>
         <div class="best-sellers__modal-content"></div>
     </div>
   </div>
