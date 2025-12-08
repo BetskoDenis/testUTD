@@ -4,6 +4,7 @@
     --text-third: #9D9D9D;
     --border-color: #DCDCDC;
     --border-color-active: #292929;
+    --bg-color-sale: #E41616;
 }
 
 .best-sellers {
@@ -127,8 +128,9 @@
 }
 
 .best-sellers__tag--sale {
-    background-color: #d93025;
-    border: 1px solid var(--border-color);
+    background-color: var(--bg-color-sale);
+    border: 1px solid var(--bg-color-sale);
+    color: #ffffff;
 }
 
 .best-sellers__product-title {
