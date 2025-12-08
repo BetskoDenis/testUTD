@@ -4,9 +4,9 @@
 }
 
 .best-sellers__container {
-    max-width: 1808px;
+    max-width: 1680px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 32px 16px;
 }
 
 .best-sellers__section-label {
