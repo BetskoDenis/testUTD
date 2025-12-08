@@ -189,10 +189,8 @@
     align-items: baseline;
 }
 
-.best-sellers__price-compare {
-    text-decoration: line-through;
-    opacity: 0.6;
-    font-size: 0.9em;
+.best-sellers__price-current {
+    color: var(--text-secondary);
 }
 
 
