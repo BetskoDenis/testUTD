@@ -83,6 +83,8 @@
 .best-sellers__media {
     position: relative;
     border-radius: 16px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 .best-sellers__content {
