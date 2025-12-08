@@ -117,9 +117,9 @@
 
 .best-sellers__tag {
     padding: 8px 16px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0;
     border-radius: 16px;
     background-color: #000;
     color: #fff;
