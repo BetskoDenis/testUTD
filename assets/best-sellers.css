@@ -193,7 +193,9 @@
     color: var(--color-sale);
 }
 
-
+.best-sellers__price-compare {
+    
+}
 
 .best-sellers__overlay {
     position: fixed;
