@@ -41,7 +41,7 @@
             {% if collection %}
               {% assign override_product = all_products[block.settings.product] %}
               {% if override_product %}
-                  ввввв
+                  {{ override_product | json }}
                 {% assign product = override_product %}
               {% else %}
                   ыыыыы
