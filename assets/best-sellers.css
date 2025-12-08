@@ -83,6 +83,11 @@
     position: relative;
 }
 
+.best-sellers__content {
+    position: absolute;
+    
+}
+
 .best-sellers__image-link {
     display: block;
 }
