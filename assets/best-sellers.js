@@ -147,6 +147,18 @@ const initBestSellersSection = (section) => {
                         detail: { cart },
                     });
                     document.dispatchEvent(cartUpdatedEvent);
+
+                    // Открываем стандартный cart drawer через клик по иконке корзины,
+                    // чтобы сработала вся родная логика темы (рендер, анимации и т.д.)
+                    const cartToggleButton = document.querySelector(
+                        'button[aria-controls="CartDrawer"], #cart-icon-bubble'
+                    );
+
+                    if (cartToggleButton) {
+                        cartToggleButton.dispatchEvent(
+                            new MouseEvent('click', { bubbles: true })
+                        );
+                    }
                 })
                 .catch((error) => {
 
