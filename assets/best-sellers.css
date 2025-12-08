@@ -1,6 +1,7 @@
 :root {
     --text-primary: #000000;
     --text-secondary: #535353;
+    #9D9D9D
     --border-color: #DCDCDC;
 }
 
@@ -60,7 +61,7 @@
 }
 
 .best-sellers__collections-button.is-active {
-    
+
 }
 
 .best-sellers__product-card {
