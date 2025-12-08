@@ -39,14 +39,8 @@
 .best-sellers__grid {
     display: flex;
     flex-direction: column;
-    /*grid-template-columns: minmax(0, 1fr);*/
     gap: 24px;
 }
-
-
-/*.best-sellers__product-card.is-active {*/
-/*    grid-template-columns: minmax(0, 1fr);*/
-/*}*/
 
 .best-sellers__collections-list {
     list-style: none;
@@ -82,9 +76,7 @@
 }
 
 .best-sellers__product-card.is-active {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    align-items: flex-start;
+    display: flex;
 }
 
 .best-sellers__media {
