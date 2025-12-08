@@ -113,7 +113,10 @@
                                   class="best-sellers__icon-button best-sellers__icon-button--wishlist"
                                   aria-label="Add to wishlist"
                           >
-                              <span aria-hidden="true">❤</span>
+
+                                  <span class="svg-wrapper">
+                        {{- 'icon-arrow.svg' | inline_asset_content -}}
+                      </span>
                           </button>
 
                           {% assign first_variant = product.selected_or_first_available_variant %}
