@@ -30,7 +30,6 @@ const initBestSellersSection = (section) => {
         tab.addEventListener('click', () => {
             const blockId = tab.getAttribute('data-block-id');
             if (tab.classList.contains('is-active')) {
-                // Нельзя выключить активный таб
                 return;
             }
             setActive(blockId);
@@ -97,7 +96,6 @@ const initBestSellersSection = (section) => {
                 },
                 body: JSON.stringify({ id: Number(variantId), quantity: 1 }),
             }).catch((error) => {
-                // eslint-disable-next-line no-console
                 console.error('Best sellers quick add error', error);
             });
         }
@@ -109,13 +107,4 @@ const initBestSellersSections = () => {
     sections.forEach((section) => initBestSellersSection(section));
 };
 
-// Для обычной загрузки
 document.addEventListener('DOMContentLoaded', initBestSellersSections);
-
-// Если используешь Shopify Theme Editor / динамический ререндер секций,
-// можешь дополнительно подписаться на window.ShopifyPreview / custom events,
-// например:
-// document.addEventListener('shopify:section:load', (event) => {
-//   const section = event.target.querySelector('[data-section-type="best-sellers"]');
-//   if (section) initBestSellersSection(section);
-// });
