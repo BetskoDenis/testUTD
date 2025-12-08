@@ -58,7 +58,10 @@
     font-size: 22px;
     line-height: 28px;
     align-items: center;
-    border: none none 1px solid var(--border-color) none;
+    border-top: unset;
+    border-right: unset;
+    border-left: unset;
+    border-bottom: 1px solid var(--border-color);
     color: var(--text-third);
 }
 
