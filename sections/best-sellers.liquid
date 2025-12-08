@@ -2,7 +2,7 @@
   Best sellers section
 {% endcomment %}
 
-<section id="best-sellers-{{ section.id }}" class="best-sellers">
+<section id="best-sellers-{{ section.id }}" class="best-sellers" data-section-id="{{ section.id }}" data-section-type="best-sellers">
   <div class="best-sellers__container">
     {% if section.settings.section_label != blank %}
       <p class="best-sellers__section-label">{{ section.settings.section_label }}</p>
@@ -361,7 +361,7 @@
     cursor: pointer;
   }
 
-  .best-sellers--no-scroll {
+  .no-scroll {
     overflow: hidden;
   }
 
@@ -375,108 +375,6 @@
     }
   }
 </style>
-
-<script>
-  (function () {
-    var section = document.getElementById('best-sellers-{{ section.id }}');
-    if (!section) return;
-
-    var tabs = section.querySelectorAll('[data-best-sellers-tab]');
-    var cards = section.querySelectorAll('[data-best-sellers-card]');
-    var overlay = section.querySelector('[data-best-sellers-overlay]');
-    var modal = section.querySelector('[data-best-sellers-modal]');
-    var modalBody = modal ? modal.querySelector('.best-sellers__modal-body') : null;
-    var modalClose = modal ? modal.querySelector('.best-sellers__modal-close') : null;
-    var body = document.body;
-
-    function setActive(blockId) {
-      if (!blockId) return;
-
-      tabs.forEach(function (tab) {
-        var isActive = tab.getAttribute('data-block-id') === blockId;
-        tab.classList.toggle('is-active', isActive);
-        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      });
-
-      cards.forEach(function (card) {
-        var isActive = card.getAttribute('data-block-id') === blockId;
-        card.classList.toggle('is-active', isActive);
-      });
-    }
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        var blockId = tab.getAttribute('data-block-id');
-        if (tab.classList.contains('is-active')) {
-          return; // Нельзя выключить активный таб
-        }
-        setActive(blockId);
-      });
-    });
-
-    function openModal(productName) {
-      if (!overlay || !modal || !modalBody) return;
-
-      modalBody.innerHTML = '';
-
-      var text = document.createElement('p');
-      text.textContent = productName + ' has been added to your wishlist.';
-      modalBody.appendChild(text);
-
-      overlay.hidden = false;
-      modal.hidden = false;
-
-      body.classList.add('best-sellers--no-scroll');
-    }
-
-    function closeModal() {
-      if (!overlay || !modal) return;
-      overlay.hidden = true;
-      modal.hidden = true;
-      body.classList.remove('best-sellers--no-scroll');
-    }
-
-    if (overlay) {
-      overlay.addEventListener('click', closeModal);
-    }
-
-    if (modalClose) {
-      modalClose.addEventListener('click', closeModal);
-    }
-
-    section.addEventListener('click', function (event) {
-      var wishlistButton = event.target.closest('.best-sellers__icon-button--wishlist');
-      var quickAddButton = event.target.closest('.best-sellers__icon-button--quick-add');
-
-      if (wishlistButton) {
-        var activeCard = section.querySelector('.best-sellers__product-card.is-active');
-        if (!activeCard) return;
-        var productName = activeCard.getAttribute('data-product-title') || '';
-        openModal(productName);
-      }
-
-      if (quickAddButton) {
-        if (quickAddButton.hasAttribute('disabled') || quickAddButton.getAttribute('aria-disabled') === 'true') {
-          return;
-        }
-
-        var variantId = quickAddButton.getAttribute('data-variant-id');
-        if (!variantId) return;
-
-        fetch('/cart/add.js', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({ id: Number(variantId), quantity: 1 })
-        }).catch(function (error) {
-          console.error('Best sellers quick add error', error);
-        });
-      }
-    });
-  })();
-</script>
 
 {% schema %}
 {
