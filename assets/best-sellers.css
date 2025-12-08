@@ -31,6 +31,8 @@
     line-height: 34px;
     letter-spacing: 0;
     color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 24px;
 }
 
 .best-sellers__grid {
