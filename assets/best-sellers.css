@@ -1,6 +1,6 @@
 :root {
     --text-primary: #000000;
-    --text-secondary: #000000;
+    --text-secondary: #535353;
 
 }
 
@@ -20,7 +20,7 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0;
-    color: #535353;
+    color: var(--text-secondary);
     margin-top: 0;
 }
 
