@@ -95,9 +95,34 @@ const initBestSellersSection = (section) => {
                     Accept: 'application/json',
                 },
                 body: JSON.stringify({ id: Number(variantId), quantity: 1 }),
-            }).catch((error) => {
-                console.error('Best sellers quick add error', error);
-            });
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(() => fetch('/cart.js'))
+                .then((response) => response.json())
+                .then((cart) => {
+
+                    const countBubble = document.querySelector(
+                        '.cart-count-bubble__count, [data-cart-count]'
+                    );
+
+                    if (countBubble && typeof cart.item_count === 'number') {
+                        countBubble.textContent = cart.item_count;
+                    }
+
+                    const cartUpdatedEvent = new CustomEvent('best-sellers:cart-updated', {
+                        detail: { cart },
+                    });
+                    document.dispatchEvent(cartUpdatedEvent);
+                })
+                .catch((error) => {
+
+                    console.error('Best sellers quick add error', error);
+                });
         }
     });
 };
