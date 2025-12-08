@@ -88,7 +88,10 @@
 
 .best-sellers__content {
     position: absolute;
-    bottom: 0;
+    bottom: 6px;
+    left: 8px;
+    right: 8px;
+    background-color: #fff;
 }
 
 .best-sellers__image-link {
