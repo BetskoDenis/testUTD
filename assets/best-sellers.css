@@ -171,6 +171,10 @@
     cursor: not-allowed;
 }
 
+best-sellers__product-title-link {
+    text-decoration: none;
+}
+
 .best-sellers__product-title {
     margin: 0 0 8px;
 }
