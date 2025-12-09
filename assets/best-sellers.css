@@ -333,6 +333,8 @@
         right: 16px;
         bottom: 14px;
         padding: 24px 32px;
+        display: flex;
+        justify-content: space-between;
     }
 
 
