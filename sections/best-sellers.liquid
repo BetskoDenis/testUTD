@@ -1,4 +1,5 @@
 {{ 'best-sellers.css' | asset_url | stylesheet_tag }}
+{{ 'best-sellers.js' | asset_url | script_tag }}
 
 <section id="best-sellers-{{ section.id }}" class="best-sellers" data-section-id="{{ section.id }}"
          data-section-type="best-sellers">
