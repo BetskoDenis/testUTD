@@ -6,7 +6,6 @@ const initBestSellersSection = (section) => {
     const cards = section.querySelectorAll('[data-best-sellers-card]');
     const overlay = section.querySelector('[data-best-sellers-overlay]');
     const modal = section.querySelector('[data-best-sellers-modal]');
-    const modalBody = modal?.querySelector('.best-sellers__modal-body') || null;
     const modalContent = modal?.querySelector('.best-sellers__modal-content') || null;
     const modalClose = modal?.querySelector('.best-sellers__modal-close') || null;
     const body = document.body;
