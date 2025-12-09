@@ -284,4 +284,10 @@
     .best-sellers__product {
         width: calc(50% - 8px);
     }
+
+    .best-sellers__collections {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
