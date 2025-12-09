@@ -320,7 +320,11 @@
     .best-sellers__icon-button {
         width: 48px;
         height: 48px;
-        
+    }
+
+    .best-sellers__icon-button svg {
+        width: 24px;
+        height: 24px;
     }
 
 }
