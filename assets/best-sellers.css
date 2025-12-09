@@ -315,6 +315,7 @@
     .best-sellers__actions {
         top: 16px;
         right: 16px;
+        gap: 8px;
     }
 
     .best-sellers__icon-button {
