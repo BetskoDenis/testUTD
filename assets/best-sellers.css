@@ -97,7 +97,7 @@
 }
 
 .best-sellers__image-link {
-    display: block;
+    display: flex;
 }
 
 .best-sellers__image {
