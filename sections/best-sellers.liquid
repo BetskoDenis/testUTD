@@ -1,6 +1,6 @@
 {{ 'best-sellers.css' | asset_url | stylesheet_tag }}
 
-<best-sellers id="best-sellers-{{ section.id }}" class="best-sellers" data-section-id="{{ section.id }}"
+<section id="best-sellers-{{ section.id }}" class="best-sellers" data-section-id="{{ section.id }}"
          data-section-type="best-sellers">
     <div class="best-sellers__container">
 
@@ -171,7 +171,7 @@
             <div class="best-sellers__modal-content"></div>
         </div>
     </div>
-</best-sellers>
+</section>
 
 {% schema %}
 {
