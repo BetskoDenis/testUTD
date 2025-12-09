@@ -129,8 +129,7 @@ const currentScript = document.currentScript;
 
 if (currentScript) {
     const section =
-        currentScript.closest('[data-section-type="best-sellers"]') ||
-        currentScript.closest('.shopify-section');
+        currentScript.closest('[data-section-type="best-sellers"]');
 
     if (section) {
         initBestSellersSection(section);
