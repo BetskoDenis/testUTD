@@ -76,19 +76,10 @@
         "section_label": "Best sellers",
         "title": "Trending Products"
       }
-    },
-    "best_sellers_9pJ8wh": {
-      "type": "best-sellers",
-      "name": "Best sellers",
-      "settings": {
-        "section_label": "",
-        "title": ""
-      }
     }
   },
   "order": [
     "featured_collection",
-    "best_sellers_bWP8PE",
-    "best_sellers_9pJ8wh"
+    "best_sellers_bWP8PE"
   ]
 }
