@@ -125,9 +125,4 @@ const initBestSellersSection = (section) => {
     });
 };
 
-const initBestSellersSections = () => {
-    const sections = document.querySelectorAll('[data-section-type="best-sellers"]');
-    sections.forEach((section) => initBestSellersSection(section));
-};
-
 document.addEventListener('DOMContentLoaded', initBestSellersSections);
