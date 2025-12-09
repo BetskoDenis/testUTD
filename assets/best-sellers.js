@@ -135,5 +135,3 @@ if (currentScript) {
         initBestSellersSection(section);
     }
 }
-
-document.addEventListener('DOMContentLoaded', initBestSellersSections);
