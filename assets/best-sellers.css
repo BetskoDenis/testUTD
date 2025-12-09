@@ -109,6 +109,10 @@
     border-radius: 16px;
 }
 
+.best-sellers__image picture {
+    width: 100%;
+}
+
 .best-sellers__tags {
     position: absolute;
     top: 8px;
