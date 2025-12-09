@@ -126,7 +126,7 @@ const initBestSellersSection = (section) => {
 };
 
 const currentScript = document.currentScript;
-
+console.log(currentScript)
 if (currentScript) {
     const section =
         currentScript.closest('[data-section-type="best-sellers"]');
