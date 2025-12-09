@@ -275,5 +275,8 @@
 }
 
 @media screen and (min-width: 990px) {
-
+    .best-sellers__grid {
+        flex-direction: row;
+        gap: 16px;
+    }
 }
