@@ -308,6 +308,7 @@
     }
 
     .best-sellers__tags {
-        
+        top: 16px;
+        left: 16px;
     }
 }
