@@ -292,4 +292,9 @@
         padding-left: 64px;
         padding-right: 64px;
     }
+
+    .best-sellers__title {
+        font-size: 38px;
+        line-height: 46px;
+    }
 }
