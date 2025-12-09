@@ -195,6 +195,7 @@
 
 .best-sellers__price-current {
     color: var(--color-sale);
+    font-weight: 500;
 }
 
 .best-sellers__price-compare {
