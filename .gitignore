@@ -1,0 +1,55 @@
+# Node modules
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# Shopify
+.shopify/
+
+# Compiled files (output from Webpack, Babel, etc.)
+*.min.js
+*.min.css
+
+# Logs and environment files
+*.log
+.env
+.env.local
+
+# Temporary files or backup files
+*.tmp
+*.bak
+
+# Specific configuration or lock files
+yarn.lock
+package-lock.json
+
+upload
+deploy.log
+config.yml
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+*.sql
+*.sqlite
+
+.idea
+.vscode
+.history
+*.sublime-workspace
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
