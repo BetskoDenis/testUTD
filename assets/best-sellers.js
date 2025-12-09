@@ -132,6 +132,7 @@ if (currentScript) {
         currentScript.closest('[data-section-type="best-sellers"]');
 
     if (section) {
+        console.log('!!!!!!!!!')
         initBestSellersSection(section);
     }
 }
