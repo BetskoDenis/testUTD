@@ -281,5 +281,7 @@
     }
 
     .best-sellers__collections,
-    
+    .best-sellers__product {
+        width: calc(50% - 8px);
+    }
 }
