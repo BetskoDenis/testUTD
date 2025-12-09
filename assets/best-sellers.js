@@ -125,4 +125,4 @@ const initBestSellersSection = (section) => {
     });
 };
 
-document.addEventListener('DOMContentLoaded', initBestSellersSections);
+document.addEventListener('DOMContentLoaded', initBestSellersSection);
