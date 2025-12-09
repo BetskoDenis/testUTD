@@ -1,175 +1,177 @@
-{{  'best-sellers.css' | asset_url | stylesheet_tag }}
+{{ 'best-sellers.css' | asset_url | stylesheet_tag }}
 
-<section id="best-sellers-{{ section.id }}" class="best-sellers" data-section-id="{{ section.id }}" data-section-type="best-sellers">
-  <div class="best-sellers__container">
+<best-sellers id="best-sellers-{{ section.id }}" class="best-sellers" data-section-id="{{ section.id }}"
+         data-section-type="best-sellers">
+    <div class="best-sellers__container">
 
-    {% if section.blocks.size > 0 %}
-      <div class="best-sellers__grid">
-        <div class="best-sellers__collections" role="tablist" aria-orientation="vertical">
-            {% if section.settings.section_label != blank %}
-                <p class="best-sellers__section-label">{{ section.settings.section_label }}</p>
-            {% endif %}
+        {% if section.blocks.size > 0 %}
+            <div class="best-sellers__grid">
+                <div class="best-sellers__collections" role="tablist" aria-orientation="vertical">
+                    {% if section.settings.section_label != blank %}
+                        <p class="best-sellers__section-label">{{ section.settings.section_label }}</p>
+                    {% endif %}
 
-            {% if section.settings.title != blank %}
-                <h2 class="best-sellers__title">{{ section.settings.title }}</h2>
-            {% endif %}
+                    {% if section.settings.title != blank %}
+                        <h2 class="best-sellers__title">{{ section.settings.title }}</h2>
+                    {% endif %}
 
-            <ul class="best-sellers__collections-list">
-            {% for block in section.blocks %}
-              {% assign collection = block.settings.collection %}
-              {% if collection %}
-                {% assign is_active = forloop.first %}
-                <li class="best-sellers__collections-item" {{ block.shopify_attributes }}>
-                  <button
-                    type="button"
-                    class="best-sellers__collections-button{% if is_active %} is-active{% endif %}"
-                    data-best-sellers-tab
-                    data-block-id="{{ block.id }}"
-                    role="tab"
-                    aria-selected="{{ is_active }}"
-                  >
-                    {{ block.settings.collection_title | default: collection.title }}
-                      <span class="svg-wrapper">
+                    <ul class="best-sellers__collections-list">
+                        {% for block in section.blocks %}
+                            {% assign collection = block.settings.collection %}
+                            {% if collection %}
+                                {% assign is_active = forloop.first %}
+                                <li class="best-sellers__collections-item" {{ block.shopify_attributes }}>
+                                    <button
+                                            type="button"
+                                            class="best-sellers__collections-button{% if is_active %} is-active{% endif %}"
+                                            data-best-sellers-tab
+                                            data-block-id="{{ block.id }}"
+                                            role="tab"
+                                            aria-selected="{{ is_active }}"
+                                    >
+                                        {{ block.settings.collection_title | default: collection.title }}
+                                        <span class="svg-wrapper">
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
                       </span>
-                  </button>
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-
-        <div class="best-sellers__product" role="tabpanel">
-          {% for block in section.blocks %}
-            {% assign collection = block.settings.collection %}
-            {% if collection %}
-              {% if block.settings.product != blank %}
-                {% assign product = block.settings.product %}
-              {% else %}
-                {% assign product = collection.products | first %}
-              {% endif %}
-
-              {% if product %}
-                {% assign is_active = forloop.first %}
-                {% assign featured_image = product.featured_image %}
-
-                <div
-                  class="best-sellers__product-card{% if is_active %} is-active{% endif %}"
-                  data-best-sellers-card
-                  data-block-id="{{ block.id }}"
-                  data-product-title="{{ product.title | escape }}"
-                  data-product-handle="{{ product.handle }}"
-                >
-                  <div class="best-sellers__media">
-                    <a href="{{ product.url }}" class="best-sellers__image-link">
-                      {% if featured_image %}
-
-                        {% assign best_sellers_mobile_1x = featured_image | image_url: width: 360 %}
-                        {% assign best_sellers_mobile_2x = featured_image | image_url: width: 720 %}
-                        {%- assign best_sellers_desktop_1x = featured_image | image_url: width: 1024 -%}
-                        {%- assign best_sellers_desktop_2x = featured_image | image_url: width: 2048 -%}
-
-                        <picture>
-                          <source
-                            media="(max-width: 749px)"
-                            srcset="{{ best_sellers_mobile_1x }} 1x, {{ best_sellers_mobile_2x }} 2x"
-                          >
-                          <source
-                            media="(min-width: 750px)"
-                            srcset="{{ best_sellers_desktop_1x }} 1x, {{ best_sellers_desktop_2x }} 2x"
-                          >
-                          <img
-                            class="best-sellers__image"
-                            src="{{ best_sellers_desktop_1x }}"
-                            alt="{{ featured_image.alt | escape }}"
-                            loading="lazy"
-                            width="{{ featured_image.width }}"
-                            height="{{ featured_image.height }}"
-                          >
-                        </picture>
-                      {% else %}
-                        {{ 'product-1' | placeholder_svg_tag: 'best-sellers__image-placeholder' }}
-                      {% endif %}
-                    </a>
-
-                    {% assign tag_count = 0 %}
-                    {% if product.tags.size > 0 %}
-                      <ul class="best-sellers__tags">
-                        {% for tag in product.tags %}
-                          {% if tag_count == 3 %}
-                            {% break %}
-                          {% endif %}
-                          {% assign tag_count = tag_count | plus: 1 %}
-                          {% assign tag_down = tag | downcase %}
-                          <li class="best-sellers__tag{% if tag_down == 'sale' %} best-sellers__tag--sale{% endif %}">
-                            {{ tag }}
-                          </li>
+                                    </button>
+                                </li>
+                            {% endif %}
                         {% endfor %}
-                      </ul>
-                    {% endif %}
-                      <div class="best-sellers__actions">
-                          <button
-                                  type="button"
-                                  class="best-sellers__icon-button best-sellers__icon-button--wishlist"
-                                  aria-label="Add to wishlist"
-                          >
+                    </ul>
+                </div>
+
+                <div class="best-sellers__product" role="tabpanel">
+                    {% for block in section.blocks %}
+                        {% assign collection = block.settings.collection %}
+                        {% if collection %}
+                            {% if block.settings.product != blank %}
+                                {% assign product = block.settings.product %}
+                            {% else %}
+                                {% assign product = collection.products | first %}
+                            {% endif %}
+
+                            {% if product %}
+                                {% assign is_active = forloop.first %}
+                                {% assign featured_image = product.featured_image %}
+
+                                <div
+                                        class="best-sellers__product-card{% if is_active %} is-active{% endif %}"
+                                        data-best-sellers-card
+                                        data-block-id="{{ block.id }}"
+                                        data-product-title="{{ product.title | escape }}"
+                                        data-product-handle="{{ product.handle }}"
+                                >
+                                    <div class="best-sellers__media">
+                                        <a href="{{ product.url }}" class="best-sellers__image-link">
+                                            {% if featured_image %}
+
+                                                {% assign best_sellers_mobile_1x = featured_image | image_url: width: 360 %}
+                                                {% assign best_sellers_mobile_2x = featured_image | image_url: width: 720 %}
+                                                {%- assign best_sellers_desktop_1x = featured_image | image_url: width: 1024 -%}
+                                                {%- assign best_sellers_desktop_2x = featured_image | image_url: width: 2048 -%}
+
+                                                <picture>
+                                                    <source
+                                                            media="(max-width: 749px)"
+                                                            srcset="{{ best_sellers_mobile_1x }} 1x, {{ best_sellers_mobile_2x }} 2x"
+                                                    >
+                                                    <source
+                                                            media="(min-width: 750px)"
+                                                            srcset="{{ best_sellers_desktop_1x }} 1x, {{ best_sellers_desktop_2x }} 2x"
+                                                    >
+                                                    <img
+                                                            class="best-sellers__image"
+                                                            src="{{ best_sellers_desktop_1x }}"
+                                                            alt="{{ featured_image.alt | escape }}"
+                                                            loading="lazy"
+                                                            width="{{ featured_image.width }}"
+                                                            height="{{ featured_image.height }}"
+                                                    >
+                                                </picture>
+                                            {% else %}
+                                                {{ 'product-1' | placeholder_svg_tag: 'best-sellers__image-placeholder' }}
+                                            {% endif %}
+                                        </a>
+
+                                        {% assign tag_count = 0 %}
+                                        {% if product.tags.size > 0 %}
+                                            <ul class="best-sellers__tags">
+                                                {% for tag in product.tags %}
+                                                    {% if tag_count == 3 %}
+                                                        {% break %}
+                                                    {% endif %}
+                                                    {% assign tag_count = tag_count | plus: 1 %}
+                                                    {% assign tag_down = tag | downcase %}
+                                                    <li class="best-sellers__tag{% if tag_down == 'sale' %} best-sellers__tag--sale{% endif %}">
+                                                        {{ tag }}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                        <div class="best-sellers__actions">
+                                            <button
+                                                    type="button"
+                                                    class="best-sellers__icon-button best-sellers__icon-button--wishlist"
+                                                    aria-label="Add to wishlist"
+                                            >
 
                                   <span class="svg-wrapper">
                         {{- 'icon-heart.svg' | inline_asset_content -}}
                       </span>
-                          </button>
+                                            </button>
 
-                          {% assign first_variant = product.selected_or_first_available_variant %}
-                          <button
-                                  type="button"
-                                  class="best-sellers__icon-button best-sellers__icon-button--quick-add"
-                                  data-variant-id="{{ first_variant.id }}"
-                                  {% unless product.available %}disabled aria-disabled="true"{% endunless %}
-                                  aria-label="Quick add to cart"
-                          >
+                                            {% assign first_variant = product.selected_or_first_available_variant %}
+                                            <button
+                                                    type="button"
+                                                    class="best-sellers__icon-button best-sellers__icon-button--quick-add"
+                                                    data-variant-id="{{ first_variant.id }}"
+                                                    {% unless product.available %}disabled
+                                                    aria-disabled="true"{% endunless %}
+                                                    aria-label="Quick add to cart"
+                                            >
                               <span class="svg-wrapper">
                         {{- 'icon-eye-new.svg' | inline_asset_content -}}
                       </span>
-                          </button>
-                      </div>
-                  </div>
+                                            </button>
+                                        </div>
+                                    </div>
 
-                  <div class="best-sellers__content">
-                    <a href="{{ product.url }}" class="best-sellers__product-title-link">
-                      <h3 class="best-sellers__product-title">{{ product.title }}</h3>
-                    </a>
+                                    <div class="best-sellers__content">
+                                        <a href="{{ product.url }}" class="best-sellers__product-title-link">
+                                            <h3 class="best-sellers__product-title">{{ product.title }}</h3>
+                                        </a>
 
-                    {% if product.price %}
-                      <div class="best-sellers__price">
-                        {% if product.compare_at_price_max > product.price %}
-                          <span class="best-sellers__price-current">{{ product.price | money }}</span>
-                          <span class="best-sellers__price-compare">{{ product.compare_at_price_max | money }}</span>
-                        {% else %}
-                          <span class="best-sellers__price-current">{{ product.price | money }}</span>
+                                        {% if product.price %}
+                                            <div class="best-sellers__price">
+                                                {% if product.compare_at_price_max > product.price %}
+                                                    <span class="best-sellers__price-current">{{ product.price | money }}</span>
+                                                    <span class="best-sellers__price-compare">{{ product.compare_at_price_max | money }}</span>
+                                                {% else %}
+                                                    <span class="best-sellers__price-current">{{ product.price | money }}</span>
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            {% endif %}
                         {% endif %}
-                      </div>
-                    {% endif %}
-
-                  </div>
+                    {% endfor %}
                 </div>
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    {% endif %}
-  </div>
-
-  <div class="best-sellers__overlay" data-best-sellers-overlay hidden></div>
-  <div class="best-sellers__modal" data-best-sellers-modal hidden role="dialog" aria-modal="true">
-    <div class="best-sellers__modal-body">
-        <button type="button" class="best-sellers__modal-close" aria-label="Close">
-            {{- 'icon-close.svg' | inline_asset_content -}}
-        </button>
-        <div class="best-sellers__modal-content"></div>
+            </div>
+        {% endif %}
     </div>
-  </div>
-</section>
+
+    <div class="best-sellers__overlay" data-best-sellers-overlay hidden></div>
+    <div class="best-sellers__modal" data-best-sellers-modal hidden role="dialog" aria-modal="true">
+        <div class="best-sellers__modal-body">
+            <button type="button" class="best-sellers__modal-close" aria-label="Close">
+                {{- 'icon-close.svg' | inline_asset_content -}}
+            </button>
+            <div class="best-sellers__modal-content"></div>
+        </div>
+    </div>
+</best-sellers>
 
 {% schema %}
 {

@@ -1,4 +1,3 @@
-
 const initBestSellersSection = (section) => {
     if (!section) return;
 
