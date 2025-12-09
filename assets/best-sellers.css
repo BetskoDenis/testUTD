@@ -328,4 +328,11 @@
         height: 24px;
     }
 
+    .best-sellers__content {
+        left: 16px;
+        right: 16px;
+        bottom: 14px;
+    }
+
+
 }
