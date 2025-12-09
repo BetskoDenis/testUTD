@@ -296,5 +296,6 @@
     .best-sellers__title {
         font-size: 38px;
         line-height: 46px;
+        margin-bottom: 64px;
     }
 }
