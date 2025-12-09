@@ -125,14 +125,9 @@ const initBestSellersSection = (section) => {
     });
 };
 
-const currentScript = document.currentScript;
-console.log(currentScript)
-if (currentScript) {
-    const section =
-        currentScript.closest('[data-section-type="best-sellers"]');
+const initBestSellersSections = () => {
+    const sections = document.querySelectorAll('[data-section-type="best-sellers"]');
+    sections.forEach((section) => initBestSellersSection(section));
+};
 
-    if (section) {
-        console.log('!!!!!!!!!')
-        initBestSellersSection(section);
-    }
-}
+document.addEventListener('DOMContentLoaded', initBestSellersSections);
