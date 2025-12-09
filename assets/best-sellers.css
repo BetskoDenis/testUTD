@@ -298,4 +298,8 @@
         line-height: 46px;
         margin-bottom: 64px;
     }
+
+    .best-sellers__collections-button {
+        padding-right: 24px;
+    }
 }
